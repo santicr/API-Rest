@@ -1,23 +1,55 @@
-const express = require('express') //Importing express dependence
-const user = require('../API-Rest/user.controller')
-const app = express() //Our application
-const port = 3000 //Port
+const mongoose = require('mongoose')
 
-//Status 204 is for ok result but with no data to user. SendStatus is only for send status, the other one is for send data and status
-//Id is for get an ID to each route (after localhost:3000)
-//POST is not accesible by URL (use postman for this), but, GET is accessible by URL
+mongoose.connect('mongodb+srv://admin:admin@cluster0.lslkadu.mongodb.net/myapp?retryWrites=true&w=majority') //Connection
 
-app.get('/', user.list)
-app.post('/', user.create)
-app.put('/:id', user.update)
-app.patch('/:id', user.update)
-app.get('/:id', user.get)
-app.delete('/:id', user.destroy)
-
-app.get('*', (req, res) => {
-    res.status(404).send("Esta página no existe")
+const User = mongoose.model('User', {
+    username: String,
+    age: Number,    
 })
 
-app.listen(port, () => {
-    console.log("Arrancando la app")
-}) //Listen the port and run the app
+const crear = async () => {
+    const user = new User({username: 'Carlos', age: 22})
+    const savedUser = await user.save()
+    console.log(savedUser)
+}
+
+//crear()
+
+const buscarTodo = async () => {
+    const users = await User.find()
+    console.log(users)
+}
+
+//buscarTodo()
+
+const buscar = async () => {
+    const user = await User.find({username: 'Carlos'})
+    console.log(user)
+}
+
+//buscar()
+
+const buscarUno = async () => {
+    const uOne = await User.findOne({username: 'Carlos'})
+    console.log(uOne)
+}
+
+//buscarUno()
+
+const actualizar = async () => {
+    const user = await User.findOne({username: 'Carlos'})
+    user.age = 14
+    await user.save()
+    console.log(user)
+}
+
+//actualizar()
+
+const eliminar = async () => {
+    const user = await User.findOne({username: 'Carlos'})
+    if(user){
+        await user.remove()
+    }
+}
+
+//eliminar();
