@@ -10,6 +10,9 @@ const user = {
     },
     destroy: (req, res) => {
         res.status(204).send('Borrando un dato')
+    },
+    get: (req, res) => {
+        res.status(200).send('Este es un dato')
     }
 }
 
