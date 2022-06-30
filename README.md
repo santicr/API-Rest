@@ -1,4 +1,4 @@
-# API-Rest
+# Rest-API
 ## My API Rest simple project (I used postman to proof all method). Using Node JS. I implemented methods like GET, POST, PUT, PATCH and DELETE. Also, I used MongoDB as database to give functionality to all methods.
 
 ### To start creating an API Rest, just type the following commands:
