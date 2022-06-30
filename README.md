@@ -8,4 +8,4 @@
 
 ## What did I learn?
 ### Summary:
-### I learnt, how to connect an app to database using MongoDB (free version), how to create a simple database (users), how to delete and add items to users database. Also, imlementation of methods (GET, PUT, PATCH, DELETE AND POST).
+### I learnt, how to connect an app to database using MongoDB (free version), how to create a simple database (users), how to delete and add items to users database using Node JS. Also, imlementation of methods (GET, PUT, PATCH, DELETE AND POST).
