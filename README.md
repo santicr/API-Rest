@@ -6,6 +6,6 @@
 ### 2). npm install -S express (-S to save the express dependence)
 ### 3). npm i -S mongoose (This is a MongoDB library to connect easier with the cloud server)
 
-##What did I learn?
+## What did I learn?
 ### Summary:
 ### I learnt, how to connect an app to database using MongoDB (free version), how to create a simple database (users), how to delete and add items to users database. Also, imlementation of methods (GET, PUT, PATCH, DELETE AND POST).
