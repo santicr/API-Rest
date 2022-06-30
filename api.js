@@ -10,12 +10,20 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.lslkadu.mongodb.net/myapp?r
 //Id is for get an ID to each route (after localhost:3000)
 //POST is not accesible by URL (use postman for this), but, GET is accessible by URL
 
-app.get('/', user.list)
-app.post('/', user.create)
-app.put('/:id', user.update)
-app.patch('/:id', user.update)
-app.get('/:id', user.get)
-app.delete('/:id', user.destroy)
+app.get('/users', user.list)
+app.post('/users', user.create)
+app.put('/users/:id', user.update)
+app.patch('/users/:id', user.update)
+app.get('/users/:id', user.get)
+app.delete('/users/:id', user.destroy)
+
+app.use(express.static('app'))
+
+
+app.get('/', (req, res) => {
+    console.log(__dirname)
+    res.sendFile(`${__dirname}/index.html`)
+})
 
 app.get('*', (req, res) => {
     res.status(404).send("Esta página no existe")
